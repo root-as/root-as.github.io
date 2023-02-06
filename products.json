@@ -1,8 +1,14 @@
 [
     {
-        "url": "https://store.steampowered.com/app/107410/Arma_3/"
+        "name": "Product 1",
+        "id": "460930",
+        "price": "$100",
+        "date": "2022-01-01"
     },
     {
-        "url": "https://store.steampowered.com/app/460930/Tom_Clancys_Ghost_Recon_Wildlands/"
+        "name": "Product 1",
+        "id": "460930",
+        "price": "$100",
+        "date": "2022-01-01"
     }
 ]
