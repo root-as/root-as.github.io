@@ -1,3 +1,4 @@
-# root-as.github.io
-# h1 Upcoming Releases
-
+# Upcoming Releases
+*This is just a fun project for myself, to learn basic html and css.
+In this example I use it to track the upcoming games I want.
+The code is written with the help of chatGPT v3*
