@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="timeline.css">
+    <title>Product Timeline</title>
+    <script>
+        function loadJSON(callback) {
+            var xobj = new XMLHttpRequest();
+            xobj.overrideMimeType("application/json");
+            xobj.open("GET", "products.json", true);
+            xobj.onreadystatechange = function () {
+                if (xobj.readyState === 4 && xobj.status === 200) {
+                    // parse the JSON data
+                    var jsonData = JSON.parse(xobj.responseText);
+                    // sort the data based on the date field
+                    jsonData.sort(function (a, b) {
+                        return new Date(a.date) - new Date(b.date);
+                    });
+                    // loop through the data and create elements for each event
+                    for (var i = 0; i < jsonData.length; i++) {
+                        var event = jsonData[i];
+                        var eventDate = new Date(event.date);
+                        var eventNode = document.createElement("div");
+                        eventNode.className = "event";
+                        // add the name, price, date, and URL
+                        eventNode.innerHTML = "<a href='" + event.url + "'>" + event.name + "</a>" + ": $" + event.price + " on " + event.date;
+                        // if the event is in the future, add a countdown
+                        if (eventDate > new Date()) {
+                            var timeRemaining = eventDate - new Date();
+                            var daysRemaining = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+                            if (daysRemaining == 1) {
+                                eventNode.innerHTML += " (in " + daysRemaining + " day)";
+                            } else {
+                                eventNode.innerHTML += " (in " + daysRemaining + " days)";
+                            }
+                        }
+                        // add the event to the timeline
+                        timeline.appendChild(eventNode);
+                    }
+                }
+            };
+
+            xobj.send(null);
+        }
+
+
+
+
+        function displayTimeline() {
+            loadJSON(function (response) {
+                var products = JSON.parse(response);
+                var timeline = document.getElementById("timeline");
+
+                products.forEach(function (product) {
+                    var div = document.createElement("div");
+                    div.innerHTML =
+                        "<h3>" + product.name + "</h3>" +
+                        "<p>Date: " + product.date + "</p>" +
+                        "<p>Price: " + product.price + "</p>" +
+                        "<p><a href='" + product.url + "'>Learn more</a></p>";
+                    timeline.appendChild(div);
+                });
+            });
+        }
+    </script>
+</head>
+
+<body onload="displayTimeline()">
+    <h2>Product Timeline</h2>
+    <div id="timeline"></div>
+</body>
+
+</html>
