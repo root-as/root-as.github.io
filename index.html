@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="timeline.css">
+    <link href="https://fonts.googleapis.com/css?family=Crimson+Text|Work+Sans:400,700" rel="stylesheet">
     <title>Release Timeline</title>
     <script>
         function loadJSON(callback) {
@@ -27,7 +28,7 @@
                         // add the name, price, date, and URL
                         var image = document.createElement("img");
                         image.src = "https://cdn.cloudflare.steamstatic.com/steam/apps/" + event.id + "/header.jpg";
-                        eventNode.innerHTML = "<img src='" + image.src + "' width='15%'' height='15%''>" + "<a href='https://store.steampowered.com/app/" + event.id + "'>" + event.name + "</a>" + ": €" + event.price + " on " + event.date;
+                        eventNode.innerHTML = "<img src='" + image.src + "' width='15%'' height='15%''>" + "   <a href='https://store.steampowered.com/app/" + event.id + "'>" + event.name + "</a>" + ": " + event.price + "€ at " + event.date;
                         // if the event is in the future, add a countdown
                         if (eventDate > new Date()) {
                             var timeRemaining = eventDate - new Date();
@@ -54,23 +55,12 @@
             loadJSON(function (response) {
                 var products = JSON.parse(response);
                 var timeline = document.getElementById("timeline");
-
-                products.forEach(function (product) {
-                    var div = document.createElement("div");
-                    div.innerHTML =
-                        "<h3>" + product.name + "</h3>" +
-                        "<p>Date: " + product.date + "</p>" +
-                        "<p>Price: " + product.price + "</p>" +
-                        "<p><a href='" + product.url + "'>Learn more</a></p>";
-                    timeline.appendChild(div);
-                });
             });
         }
     </script>
 </head>
 
 <body onload="displayTimeline()">
-    <h2>Release Timeline</h2>
     <div id="timeline"></div>
 </body>
 
