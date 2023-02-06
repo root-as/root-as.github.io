@@ -1,26 +1,8 @@
 [
     {
-        "date": "2022-01-01",
-        "name": "Product 1",
-        "price": "$100",
-        "url": "https://example.com/product1"
+        "url": "https://store.steampowered.com/app/107410/Arma_3/"
     },
     {
-        "date": "2022-02-01",
-        "name": "Product 2",
-        "price": "$200",
-        "url": "https://example.com/product2"
-    },
-    {
-        "date": "2023-02-08",
-        "name": "Product 3",
-        "price": "$200",
-        "url": "https://example.com/product2"
-    },
-    {
-        "date": "2017-02-01",
-        "name": "Product 4",
-        "price": "$200",
-        "url": "https://example.com/product2"
+        "url": "https://store.steampowered.com/app/460930/Tom_Clancys_Ghost_Recon_Wildlands/"
     }
 ]
