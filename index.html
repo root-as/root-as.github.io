@@ -28,7 +28,7 @@
                         // add the name, price, date, and URL
                         var image = document.createElement("img");
                         image.src = "https://cdn.cloudflare.steamstatic.com/steam/apps/" + event.id + "/header.jpg";
-                        eventNode.innerHTML = "<img src='" + image.src + "' width='15%'' height='15%''>" + "   <a href='https://store.steampowered.com/app/" + event.id + "'>" + event.name + "</a>" + ": " + event.price + "€ on " + event.date;
+                        eventNode.innerHTML = "<img src='" + image.src + "' width='15%'' height='15%''>" + "   <a href='https://store.steampowered.com/app/" + event.id + "'>" + event.name + ":</a> " + event.price + "€ on " + event.date;
                         // if the event is in the future, add a countdown
                         if (eventDate > new Date()) {
                             var timeRemaining = eventDate - new Date();
